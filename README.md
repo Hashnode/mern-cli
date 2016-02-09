@@ -8,7 +8,7 @@ npm install -g mern-cli
 
 Create a new app
 ```
-mern-cli init my_app
+mern init my_app
 ```
 
 Install Dependcies
