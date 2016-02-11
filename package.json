@@ -1,6 +1,6 @@
 {
   "name": "mern-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "scripts": {
