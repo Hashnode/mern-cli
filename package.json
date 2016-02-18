@@ -1,6 +1,6 @@
 {
   "name": "mern-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "scripts": {
@@ -15,9 +15,16 @@
   },
   "keywords": [
     "cli",
-    "mern"
+    "mern",
+    "isomorphic",
+    "boilerplate",
+    "react",
+    "redux",
+    "react-router",
+    "express",
+    "mongo"
   ],
-  "author": "Mayank <imayankchd@gmail.com>",
+  "author": "Mayank Chandola <imayankchd@gmail.com>, Prashant Abhishek <prashant.abhishek7g@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Hashnode/mern-cli/issues"
