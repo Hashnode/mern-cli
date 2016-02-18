@@ -1,4 +1,6 @@
 # mern-cli
+[![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=master)](https://travis-ci.org/Hashnode/mern-cli)
+
 A cli tool for getting started with MERN
 
 ```
