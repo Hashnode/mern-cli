@@ -9,16 +9,17 @@ var path               = require('path');
 var normalizeEntityName = require('ember-cli-normalize-entity-name');
 
 module.exports = {
-  description: 'Generates a component.',
+  description: 'Generates a container.',
 
   availableOptions: [
-    { name: 'props', type: Object }
+    { name: 'props', type: Object },
+    { name: 'states', type: Object }
   ],
 
   fileMapTokens: function() {
     return {
       __path__: function(options) {
-        return 'shared/components/' + options.locals.entity.name;
+        return 'shared/containers/' + options.locals.entity.name;
       }
     };
   },

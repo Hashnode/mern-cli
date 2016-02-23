@@ -9,23 +9,22 @@ var path               = require('path');
 var normalizeEntityName = require('ember-cli-normalize-entity-name');
 
 module.exports = {
-  description: 'Generates a component.',
+  description: 'Generates a controller.',
 
   availableOptions: [
-    { name: 'props', type: Object }
+    { name: 'actions', type: Array },
   ],
 
   fileMapTokens: function() {
     return {
       __path__: function(options) {
-        return 'shared/components/' + options.locals.entity.name;
+        return 'server/controllers';
       }
     };
   },
 
   normalizeEntityName: function(entityName) {
     entityName = normalizeEntityName(entityName);
-
     return validComponentName(entityName);
   },
 

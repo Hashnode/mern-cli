@@ -1,14 +1,13 @@
 /* eslint-disable */
 
-var mocha = require('mocha');
-var app = require('../server');
-var chai = require('chai');
-var request = require('supertest');
-var mongoose = require('mongoose');
-var Post = require('../models/post');
-var expect = chai.expect;
+import mocha from 'mocha';
+import app from '../server';
+import chai from 'chai';
+import request from 'supertest';
+import mongoose from 'mongoose';
+import Post from '../models/post';
 
-// request = request(app);
+const expect = chai.expect;
 
 function connectDB(done) {
   if (mongoose.connection.name !== 'mern-test') {
@@ -73,15 +72,13 @@ describe('GET /api/getPost', function () {
       post.save(function (err, saved) {
         done();
       });
-
     });
-    
   });
 
   afterEach(function (done) {
     dropDB(done);
   });
-  
+
   it('Should send correct data when queried against a title', function (done) {
 
     request(app)
@@ -124,4 +121,45 @@ describe('POST /api/addPost', function () {
       });
   });
 
+});
+
+describe('POST /api/deletePost', function () {
+  var postId;
+
+  beforeEach('connect and add one Post entry', function(done){
+
+    connectDB(function () {
+      var post = new Post({ name: 'Foo', title: 'bar', slug: 'bar', cuid: 'f34gb2bh24b24b2', content: 'Hello Mern says Foo' });
+
+      post.save(function (err, saved) {
+        postId = saved._id;
+        done();
+      });
+    });
+  });
+
+  afterEach(function (done) {
+    dropDB(done);
+  });
+
+  it('Should connect and delete a post', function () {
+
+    // Check if post is saved in DB
+    Post.findById(postId).exec(function (err, post) {
+      expect(post.name).to.equal('Foo')
+    });
+
+    request(app)
+      .post('/api/deletePost')
+      .send({ postId: postId})
+      .set('Accept', 'application/json')
+      .end(function () {
+
+        // Check if post is removed from DB
+        Post.findById(postId).exec(function (err, post) {
+          expect(post).to.equal(null);
+          done();
+        });
+      });
+  })
 });
