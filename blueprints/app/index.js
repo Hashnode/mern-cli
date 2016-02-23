@@ -3,7 +3,7 @@
 var stringUtil = require('ember-cli-string-utils');
 
 module.exports = {
-  description: 'The default blueprint for mern-cli projects.',
+  description: 'The default blueprint for mern projects.',
 
   locals: function(options) {
     var entity    = options.entity;

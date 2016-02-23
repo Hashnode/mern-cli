@@ -1,10 +1,10 @@
 {
   "name": "mern-starter",
   "version": "1.0.0",
-  "description": "Boilerplate project for building Iosmorphic apps using React and Redux",
+  "description": "Boilerplate project for building Isomorphic apps using React and Redux",
   "scripts": {
     "test": "mocha shared/tests/*.spec.js --compilers js:babel-register",
-    "test:server": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://localhost:27017/mern-test mocha --compilers js:babel-core/register --recursive server/tests/**/*.spec.js",
+    "test:server": "cross-env NODE_ENV=test PORT=8080 MONGO_URL=mongodb://localhost:27017/mern-test mocha --compilers js:babel-register --recursive server/tests/**/*.spec.js",
     "start": "cross-env NODE_ENV=development node index.js",
     "start:prod": "cross-env NODE_ENV=production node index.js",
     "bs": "npm run clean && npm run build && npm run start:prod",
@@ -12,7 +12,7 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js && npm run minify",
     "clean": "rimraf static/dist",
     "slate": "rimraf node_modules && npm install",
-    "lint": "eslint shared client"
+    "lint": "eslint client server shared"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
     "express": "^4.13.4",
     "history": "^1.17.0",
     "isomorphic-fetch": "^2.2.1",
-    "mern-cli": "^1.0.6",
     "mongoose": "^4.3.7",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
@@ -63,6 +62,7 @@
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "mern-cli": "^1.0.6",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",
     "react-transform-hmr": "^1.0.1",

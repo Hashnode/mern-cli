@@ -7,20 +7,20 @@
 	line-height: normal;
 }
 
-::-webkit-input-placeholder { 
+::-webkit-input-placeholder {
 	color:#aaa;
 	font-weight: 300;
 }
 ::-moz-placeholder {
-	color:#aaa; 
-	font-weight: 300;
-} 
-:-ms-input-placeholder { 
-	color:#aaa; 
+	color:#aaa;
 	font-weight: 300;
 }
-input:-moz-placeholder { 
-	color:#aaa; 
+:-ms-input-placeholder {
+	color:#aaa;
+	font-weight: 300;
+}
+input:-moz-placeholder {
+	color:#aaa;
 	font-weight: 300;
 }
 
@@ -140,7 +140,7 @@ body {
 	color: #555;
 	text-decoration: none;
 	font-size: 14px;
-	font-style: italic;	
+	font-style: italic;
 }
 
 .single-post .post-action a:hover{
@@ -157,7 +157,7 @@ body {
 
 .header {
 	background-color: #eee;
-	background-image: url('http://res.cloudinary.com/hashnode/image/upload/v1455610145/static_imgs/mern/header-bk.png');
+	background-image: url('/img/header-bk.png');
 	background-position: center;
 	background-size: cover;
 	border-bottom: 1px solid #ccc;
@@ -196,7 +196,7 @@ body {
 	text-align: center;
 	padding: 56px 0;
 	background-color: #FFF;
-	background-image: url('http://res.cloudinary.com/hashnode/image/upload/v1455610145/static_imgs/mern/header-bk.png');
+	background-image: url('/img/header-bk.png');
 	background-position: center;
 	background-size: cover;
 }
