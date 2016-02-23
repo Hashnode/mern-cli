@@ -10,7 +10,7 @@ test('shows help on --help', async t => {
 	t.is(stdout.trim(), 'Usage: init [options]\n\n  Create a MERN app in the current directory.\n\n  Options:\n\n    -h, --help  output usage information');
 });
 
-test('shows help on --h', async t => {
-	const stdout = await exec('../bin/init.js --help');
+test('shows help on -h', async t => {
+	const stdout = await exec('../bin/init.js -h');
 	t.is(stdout.trim(), 'Usage: init [options]\n\n  Create a MERN app in the current directory.\n\n  Options:\n\n    -h, --help  output usage information');
 });
