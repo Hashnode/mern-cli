@@ -11,9 +11,8 @@ var normalizeEntityName = require('ember-cli-normalize-entity-name');
 module.exports = {
   description: 'Generates a container.',
 
-  availableOptions: [
-    { name: 'props', type: Object },
-    { name: 'states', type: Object }
+  anonymousOptions: [
+    '<props...>'
   ],
 
   fileMapTokens: function() {
@@ -39,6 +38,7 @@ module.exports = {
     return {
       entity: options.entity,
       importTemplate: importTemplate,
+      props: options.entity.options,
       contents: contents,
       path: getPathOption(options)
     };
