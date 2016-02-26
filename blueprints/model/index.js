@@ -9,7 +9,7 @@ var path               = require('path');
 var normalizeEntityName = require('ember-cli-normalize-entity-name');
 
 module.exports = {
-  description: 'Generates a controller.',
+  description: 'Generates a model.',
 
   anonymousOptions: [
     '<attributes...>'
