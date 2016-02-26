@@ -11,8 +11,8 @@ var normalizeEntityName = require('ember-cli-normalize-entity-name');
 module.exports = {
   description: 'Generates a controller.',
 
-  availableOptions: [
-    { name: 'actions', type: Array },
+  anonymousOptions: [
+    '<actions...>'
   ],
 
   fileMapTokens: function() {
@@ -38,6 +38,7 @@ module.exports = {
       entity: options.entity,
       importTemplate: importTemplate,
       contents: contents,
+      actions: options.entity.options,
       path: getPathOption(options)
     };
   }
