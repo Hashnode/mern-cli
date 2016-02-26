@@ -32,7 +32,7 @@ function mapStateToProps(store) {
 }
 
 <%= entity.name %>.propTypes = {
-  dispatch: PropTypes.func.isRequired
-};
+<% for (var key in props) { %>  <%= key %>: React.PropTypes.<%= props[key] %>,
+<% } %>};
 
 export default connect(mapStateToProps)(<%= entity.name %>);

@@ -3,11 +3,10 @@
 import React, { PropTypes, Component } from 'react';
 
 const <%= entity.name %> = () => {
-  <%= contents %>
 }
 
 <%= entity.name %>.propTypes = {
-
-};
+<% for (var key in props) { %>  <%= key %>: React.PropTypes.<%= props[key] %>,
+<% } %>};
 
 export default <%= entity.name %>;

@@ -9,23 +9,22 @@ var path               = require('path');
 var normalizeEntityName = require('ember-cli-normalize-entity-name');
 
 module.exports = {
-  description: 'Generates a container.',
+  description: 'Generates a model.',
 
   anonymousOptions: [
-    '<prop:type...>'
+    '<attribute:type...>'
   ],
 
   fileMapTokens: function() {
     return {
       __path__: function(options) {
-        return 'shared/containers/' + options.locals.entity.name;
+        return 'server/models';
       }
     };
   },
 
   normalizeEntityName: function(entityName) {
     entityName = normalizeEntityName(entityName);
-
     return validComponentName(entityName);
   },
 
@@ -38,8 +37,8 @@ module.exports = {
     return {
       entity: options.entity,
       importTemplate: importTemplate,
-      props: options.entity.options,
       contents: contents,
+      attributes: options.entity.options,
       path: getPathOption(options)
     };
   }
