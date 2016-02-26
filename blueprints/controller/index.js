@@ -17,8 +17,11 @@ module.exports = {
 
   fileMapTokens: function() {
     return {
-      __path__: function(options) {
+      __controller_path__: function(options) {
         return 'server/controllers';
+      },
+      __route_path__: function(options) {
+        return 'server/routes';
       }
     };
   },
