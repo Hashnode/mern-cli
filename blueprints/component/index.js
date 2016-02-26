@@ -12,7 +12,7 @@ module.exports = {
   description: 'Generates a component.',
 
   anonymousOptions: [
-    '<props...>'
+    '<prop:type...>'
   ],
 
   fileMapTokens: function() {

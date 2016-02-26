@@ -12,7 +12,7 @@ module.exports = {
   description: 'Generates a model.',
 
   anonymousOptions: [
-    '<attributes...>'
+    '<attribute:type...>'
   ],
 
   fileMapTokens: function() {
