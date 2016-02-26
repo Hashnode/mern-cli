@@ -1,0 +1,1 @@
+Initial Commit from Mern CLI v<%=  version %>
