@@ -4,10 +4,15 @@ var elegantSpinner = require('elegant-spinner');
 var logUpdate = require('log-update');
 var frame = elegantSpinner();
 require('shelljs/global');
+var pjson = require('../../package.json');
+
 
 program
+.version(pjson.version)
 .description('Create a MERN app in current directory!')
+.option('-v, --version', 'check version')
 .parse(process.argv);
+
 
 if (!which('git')) {
   console.log(chalk.red('Sorry, this script requires git'));
