@@ -20,7 +20,7 @@ cd my_app && npm install
 
 ## Generators
 
-Generate components, routes, controllers, models using mern generator
+Generate React components, Express routes and controllers and Mongoose models using mern generator. 
 
 ```merng dumb <componentname>          	   //Generate a dumb react component```
 
@@ -33,6 +33,13 @@ Generate components, routes, controllers, models using mern generator
 ```merng model <modelName>		  //Generate a Mongoose Model```
 
 ```merng fullstack <modelName>		  // Generate a dumb component, Node.js route, Nodejs controller, Mongoose Model```
+
+## Help and Version
+
+```
+mern -v // Check CLI version
+merng --help // Get help and check usage
+```
 
 ## Roadmap
 
