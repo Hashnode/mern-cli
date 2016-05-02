@@ -26,13 +26,13 @@ Generate components, routes, controllers, models using mern generator
 
 ```merng functional <componentName>   	   //Generate a functional component```
 
-```merng container <componentName	  //Generate a react component connect to redux store```
+```merng container <componentName	  //Generate a react component and connect to redux store```
 
-```merng route <routeName>	  	  //Generate a Nodejs route```
+```merng route <routeName>	  	  //Generate a Node.js route```
 
 ```merng model <modelName>		  //Generate a Mongoose Model```
 
-```merng fullstack <modelName>		  // Generate a dumb component, Nodejs route, Nodejs controller, Mongoose Model```
+```merng fullstack <modelName>		  // Generate a dumb component, Node.js route, Nodejs controller, Mongoose Model```
 
 ## Roadmap
 
