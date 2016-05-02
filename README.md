@@ -28,7 +28,7 @@ Generate React components, Express routes and controllers and Mongoose models us
 
 ```merng container <componentName	  //Generate a react component and connect to redux store```
 
-```merng route <routeName>	  	  //Generate a Node.js route```
+```merng route <routeName>	  	  //Generate an Express route and corresponding controller```
 
 ```merng model <modelName>		  //Generate a Mongoose Model```
 
