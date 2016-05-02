@@ -22,17 +22,17 @@ cd my_app && npm install
 
 Generate React components, Express routes and controllers and Mongoose models using mern generator. 
 
-```merng dumb <componentname>          	   //Generate a dumb react component```
+```merng dumb <componentname>          	   //Generate a dumb React component```
 
 ```merng functional <componentName>   	   //Generate a functional component```
 
-```merng container <componentName	  //Generate a react component and connect to redux store```
+```merng container <componentName	  //Generate a React component and connect to Redux store```
 
 ```merng route <routeName>	  	  //Generate an Express route and corresponding controller```
 
 ```merng model <modelName>		  //Generate a Mongoose Model```
 
-```merng fullstack <modelName>		  // Generate a dumb component, Express route, controller, Mongoose Model```
+```merng fullstack <modelName>		  // Generate a dumb component, Express route, controller and Mongoose Model```
 
 ## Help and Version
 
