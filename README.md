@@ -1,7 +1,7 @@
 # mern-cli
 [![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=master)](https://travis-ci.org/Hashnode/mern-cli)
 
-A CLI for getting started with MERN stack. It offers a super simple boilerplate project and additional utilities to get started with isomorphic React and Redux apps.
+A CLI for getting started with MERN stack. It offers a [super simple boilerplate project](https://github.com/Hashnode/mern-starter) and additional utilities to get started with isomorphic React and Redux apps.
 
 ```
 npm install -g mern-cli
