@@ -1,15 +1,14 @@
-var fs = require('fs');
+import fs from 'fs';
 
-module.exports = function(path) {
-  try {
-      fs.accessSync(path, fs.F_OK);
-      return true;
-  } catch (e) {
-    if (e.code === 'ENOENT') {
-      return false;
-    } else {
-      throw e;
-    }    
-  }
+export default path => {
+    try {
+        fs.accessSync(path, fs.F_OK);
+        return true;
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            return false;
+        }
 
-}
+        throw e;
+    }
+};

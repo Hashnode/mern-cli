@@ -1,5 +1,3 @@
-var settings = require('../../settings');
+import settings from '../../settings';
 
-module.exports = function(blueprint) {
-  return settings.COMPONENTS.indexOf(blueprint) !== -1;
-}
+export default blueprint => settings.COMPONENTS.indexOf(blueprint) !== -1;

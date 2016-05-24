@@ -1,15 +1,14 @@
-var program = require('commander');
-var generate = require('../tasks/generate');
-
-//program.description need to be refractored
+import program from 'commander';
 
 program
-.description('Generate components, routes, controllers, models using mern generator\n\n  merng dumb <componentname>\n  merng functional <componentName>\n  merng container <componentName>\n  merng route <routeName>\n  merng model <modelName>\n  merng fullstack <modelName>\n')
-.action(function() {
-  new generate().run(program.args);
-})
-.parse(process.argv);
+    .description('Generate components, routes, controllers, models using mern generator')
+    .command('dumb [component_name]', 'Generate a dumb component')
+    .command('functional [component_name]', 'Generate a functional component')
+    .command('container [component_name]', 'Generate a container component')
+    .command('model [model_name]', 'Generate a mongoose model')
+    .command('fullstack [component_name]', 'Generate a dumb component, controller and mongoose model')
+    .parse(process.argv);
 
-if(!program.args.length) {
-  program.help();
+if (!program.args.length) {
+    program.help();
 }
