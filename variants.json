@@ -1,0 +1,18 @@
+[
+  {
+    "name": "mern-starter",
+    "description": "Default Mern Starter",
+    "author": "Hashnode",
+    "git": "https://github.com/Hashnode/mern-starter.git",
+    "git-branch": "master",
+    "issues": "https://github.com/Hashnode/mern-starter/issues"
+  },
+  {
+    "name": "mern-starter 2.0",
+    "description": "V2 of Mern Starter",
+    "author": "Hashnode",
+    "git": "https://github.com/Hashnode/mern-starter.git",
+    "git-branch": "v2.0.0",
+    "issues": "https://github.com/Hashnode/mern-starter/issues"
+  }
+]

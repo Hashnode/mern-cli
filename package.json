@@ -3,13 +3,17 @@
   "version": "2.1.0",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
+  "watch": {
+    "compile": "src/**/*.js"
+  },
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:staged": "eslint-staged",
     "prepublish": "npm run compile",
     "pretest": "npm run lint",
-    "test": "ava tests/*.js"
+    "test": "ava tests/*.js",
+    "watch": "npm-watch"
   },
   "pre-commit": "lint:staged",
   "eslintConfig": {
@@ -73,16 +77,17 @@
   },
   "homepage": "https://github.com/Hashnode/mern-cli#readme",
   "bin": {
-    "mern": "./bin/init.js",
+    "mern": "./bin/main.js",
     "merng": "./bin/generate.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",
+    "cli-table": "^0.3.1",
     "commander": "^2.9.0",
+    "ejs": "^2.4.1",
     "elegant-spinner": "^1.0.1",
     "log-update": "^1.0.2",
     "shelljs": "^0.6.0",
-    "ejs": "^2.4.1",
     "writefile": "^0.2.8"
   },
   "devDependencies": {
@@ -95,6 +100,7 @@
     "eslint-config-airbnb-base": "^3.0.1",
     "eslint-plugin-import": "^1.8.0",
     "lint-staged": "^0.2.2",
+    "npm-watch": "^0.1.4",
     "pify": "^2.3.0"
   }
 }
