@@ -3,7 +3,7 @@ import Generate from '../tasks/generate';
 
 program
     .action(() => {
-        new Generate().run(['dumb', ...program.args]);
+        new Generate(['dumb', ...program.args]).run();
     })
     .parse(process.argv);
 

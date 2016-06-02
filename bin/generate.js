@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../src/commands/generate.js');
+require('../lib/commands/generate.js');

@@ -4,36 +4,43 @@ import UI from '../ui/ui';
 import fileExists from '../util/fileExists';
 import isComponent from '../util/isComponent';
 import checkAndWrite from './checkAndWrite';
-import readAndRenderTempate from './readAndRenderTemplate';
+import readAndRenderTemplate from './readAndRenderTemplate';
 
 class generate {
-    constructor() {
+    constructor(args) {
         this.ui = new UI({});
+        this.processArgs(args);
+        this.getMernStarterConfig();
     }
 
-    run(args) { // eslint-disable-line
+    processArgs = args => {
         if (args.length < 3) {
-            return this.ui.writeError('Please pass relevent number of arguments');
+            this.ui.writeError('Please pass relevent number of arguments');
         }
 
-        const blueprint = args[0];
-        const entityName = args[1];
-        let baseDirectoryMapping;
-        const upperCaseEntityName = entityName.charAt(0).toUpperCase() + entityName.slice(1);
+        this.entityName = args[1];
+        this.blueprint = args[0];
+        this.upperCaseEntityName = this.entityName.charAt(0).toUpperCase() + this.entityName.slice(1);
+    };
 
+    getMernStarterConfig = () => {
         try {
-            baseDirectoryMapping = require(`${process.cwd()}/${settings.CONFIG_FILE_NAME}`); // eslint-disable-line
+            this.baseDirectoryMapping = require(`${process.cwd()}/${settings.CONFIG_FILE_NAME}`); // eslint-disable-line
         } catch (e) {
-            return this.ui.writeError('Make sure your are in root directory of your mern boilerplate.');
+            this.ui.writeError('Make sure your are in root directory of your mern boilerplate.');
         }
+    };
+
+    run = () => {
+        const { baseDirectoryMapping, blueprint, entityName, upperCaseEntityName } = this;
 
         if (isComponent(blueprint)) {
             if (fileExists(`${process.cwd() + baseDirectoryMapping[blueprint]}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`)) {
                 this.ui.writeError('File already exists please choose another name.');
-                exit(1);
+                process.exit(1);
             }
 
-            writeFile(`${process.cwd() + baseDirectoryMapping[blueprint]}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTempate(blueprint, entityName, this.ui), err => {
+            writeFile(`${process.cwd() + baseDirectoryMapping[blueprint]}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTemplate(blueprint, entityName, this.ui), err => {
                 if (err) {
                     this.ui.writeError(err);
                 } else {
@@ -41,19 +48,19 @@ class generate {
                 }
             });
         } else if (blueprint === 'route') {
-            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTempate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTempate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
+            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTemplate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
+            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTemplate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
         } else if (blueprint === 'fullstack') {
-            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTempate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTempate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'model', readAndRenderTempate('model', entityName, this.ui), entityName, this.ui);
+            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTemplate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
+            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTemplate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
+            checkAndWrite(baseDirectoryMapping, 'model', readAndRenderTemplate('model', entityName, this.ui), entityName, this.ui);
 
             if (fileExists(`${process.cwd() + baseDirectoryMapping.dumb}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`)) {
                 this.ui.writeError('File already exists please choose another name.');
-                exit(1);
+                process.exit(1);
             }
 
-            writeFile(`${process.cwd() + baseDirectoryMapping.dumb}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTempate('dumb', entityName, this.ui), err => {
+            writeFile(`${process.cwd() + baseDirectoryMapping.dumb}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTemplate('dumb', entityName, this.ui), err => {
                 if (err) {
                     this.ui.writeError(err);
                 } else {
@@ -61,7 +68,7 @@ class generate {
                 }
             });
         } else {
-            checkAndWrite(baseDirectoryMapping, blueprint, readAndRenderTempate(blueprint, entityName, this.ui), entityName, this.ui);
+            checkAndWrite(baseDirectoryMapping, blueprint, readAndRenderTemplate(blueprint, entityName, this.ui), entityName, this.ui);
         }
     }
 }

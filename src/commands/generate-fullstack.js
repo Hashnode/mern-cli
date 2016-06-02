@@ -3,7 +3,7 @@ import Generate from '../tasks/generate';
 
 program
     .action(() => {
-        new Generate().run(['fullstack', ...program.args]);
+        new Generate(['fullstack', ...program.args]).run();
     })
     .parse(process.argv);
 

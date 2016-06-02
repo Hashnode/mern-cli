@@ -1,3 +1,3 @@
 #!/usr/bin/env node
 
-require('../src/commands/main.js');
+require('../lib/commands/main.js');

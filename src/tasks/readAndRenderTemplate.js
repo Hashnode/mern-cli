@@ -8,13 +8,11 @@ export default (blueprint, entityName, ui) => {
         template = fs.readFileSync(`${settings.PROJECT_DIR}/${settings.BLUEPRINT_DIRECTORY_NAME}/${blueprint}/${settings.BLUEPRINT_NAME}`, 'utf8');
     } catch (e) {
         ui.writeError(`${blueprint} is not a valid blueprint name`);
-        process.exit();
+        process.exit(1);
     }
 
-    const file = ejs.render(template, {
+    return ejs.render(template, {
         name: entityName,
         capitalName: entityName.charAt(0).toUpperCase() + entityName.slice(1),
     });
-
-    return file;
 };
