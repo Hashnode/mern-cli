@@ -1,6 +1,6 @@
 {
   "name": "mern-cli",
-  "version": "2.1.0",
+  "version": "2.0.0",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "watch": {
@@ -15,7 +15,7 @@
     "test": "ava tests/*.js",
     "watch": "npm-watch"
   },
-  "pre-commit": "lint:staged",
+  "pre-commit": "lint:staged && npm run test",
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": "airbnb-base",
@@ -30,6 +30,7 @@
     },
     "rules": {
       "import/no-unresolved": 2,
+      "global-require": 0,
       "comma-dangle": [
         2,
         "always-multiline"

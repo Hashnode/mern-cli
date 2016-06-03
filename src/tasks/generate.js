@@ -1,76 +1,64 @@
 import writeFile from 'writefile';
-import settings from '../../settings';
-import UI from '../ui/ui';
-import fileExists from '../util/fileExists';
-import isComponent from '../util/isComponent';
-import checkAndWrite from './checkAndWrite';
+import UI from '../util/ui';
 import readAndRenderTemplate from './readAndRenderTemplate';
+import renderTargetPath from './renderTargetPath';
+import getMernConfig from './getMernConfig';
 
 class generate {
     constructor(args) {
         this.ui = new UI({});
+        this.mernConfig = getMernConfig();
+        this.availableBluePrints = this.mernConfig.blueprints.map(bp => bp.name);
         this.processArgs(args);
-        this.getMernStarterConfig();
     }
 
     processArgs = args => {
-        if (args.length < 3) {
-            this.ui.writeError('Please pass relevent number of arguments');
+        if (args.length < 2) {
+            this.ui.writeError('Please pass relevant number of arguments');
+            process.exit(1);
         }
 
-        this.entityName = args[1];
-        this.blueprint = args[0];
-        this.upperCaseEntityName = this.entityName.charAt(0).toUpperCase() + this.entityName.slice(1);
+        if (this.availableBluePrints.indexOf(args[0]) === -1) {
+            this.ui.writeError(`Provided generator command '${args[0]}' is not available`);
+            process.exit(1);
+        }
+        this.blueprint = this.mernConfig.blueprints[this.availableBluePrints.indexOf(args[0])];
+
+        if (args[1].split('/').length > 1) {
+            this.parentModule = args[1].split('/')[0];
+            this.entityName = args[1].split('/')[1];
+        } else {
+            this.entityName = args[1];
+        }
+
+        try {
+            // Render ejs target path string
+            this.targets = this.blueprint.files.map(t => ({
+                'blueprint-path': t['blueprint-path'],
+                'target-path': renderTargetPath(t['target-path'], this.entityName, this.ui, t['parent-path'], this.parentModule),
+                renderedTemplate: readAndRenderTemplate(t['blueprint-path'], this.entityName, this.ui, this.parentModule),
+            }));
+        } catch (e) {
+            this.ui.writeError('Error rendering blueprint');
+            process.exit(1);
+        }
     };
 
-    getMernStarterConfig = () => {
-        try {
-            this.baseDirectoryMapping = require(`${process.cwd()}/${settings.CONFIG_FILE_NAME}`); // eslint-disable-line
-        } catch (e) {
-            this.ui.writeError('Make sure your are in root directory of your mern boilerplate.');
-        }
+    writeTarget = target => {
+        writeFile(`${process.cwd()}/${target['target-path']}`, target.renderedTemplate, err => {
+            if (err) {
+                this.ui.writeError(err);
+                exit(1);
+            } else {
+                this.ui.writeInfoLine(`Created ${target['target-path']}`);
+            }
+        });
     };
 
     run = () => {
-        const { baseDirectoryMapping, blueprint, entityName, upperCaseEntityName } = this;
-
-        if (isComponent(blueprint)) {
-            if (fileExists(`${process.cwd() + baseDirectoryMapping[blueprint]}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`)) {
-                this.ui.writeError('File already exists please choose another name.');
-                process.exit(1);
-            }
-
-            writeFile(`${process.cwd() + baseDirectoryMapping[blueprint]}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTemplate(blueprint, entityName, this.ui), err => {
-                if (err) {
-                    this.ui.writeError(err);
-                } else {
-                    this.ui.writeInfoLine(`Created ${upperCaseEntityName}.jsx in ${process.cwd()}${baseDirectoryMapping[blueprint]}/${upperCaseEntityName}`);
-                }
-            });
-        } else if (blueprint === 'route') {
-            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTemplate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTemplate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
-        } else if (blueprint === 'fullstack') {
-            checkAndWrite(baseDirectoryMapping, 'route', readAndRenderTemplate('route', entityName, this.ui), `${entityName}.routes`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'controller', readAndRenderTemplate('controller', entityName, this.ui), `${entityName}.controller`, this.ui);
-            checkAndWrite(baseDirectoryMapping, 'model', readAndRenderTemplate('model', entityName, this.ui), entityName, this.ui);
-
-            if (fileExists(`${process.cwd() + baseDirectoryMapping.dumb}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`)) {
-                this.ui.writeError('File already exists please choose another name.');
-                process.exit(1);
-            }
-
-            writeFile(`${process.cwd() + baseDirectoryMapping.dumb}/${upperCaseEntityName}/${upperCaseEntityName}.jsx`, readAndRenderTemplate('dumb', entityName, this.ui), err => {
-                if (err) {
-                    this.ui.writeError(err);
-                } else {
-                    this.ui.writeInfoLine(`Created ${upperCaseEntityName}.jsx in ${process.cwd()}${baseDirectoryMapping.dumb}/${upperCaseEntityName}`);
-                }
-            });
-        } else {
-            checkAndWrite(baseDirectoryMapping, blueprint, readAndRenderTemplate(blueprint, entityName, this.ui), entityName, this.ui);
-        }
-    }
+        this.targets.forEach(target => this.writeTarget(target));
+        this.ui.writeInfoLine('File Generated Successfully');
+    };
 }
 
 export default generate;

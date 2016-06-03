@@ -1,14 +1,30 @@
 import program from 'commander';
+import chalk from 'chalk';
+import Generate from '../tasks/generate';
+import getMernConfig from '../tasks/getMernConfig';
 
 program
     .description('Generate components, routes, controllers, models using mern generator')
-    .command('dumb [component_name]', 'Generate a dumb component')
-    .command('functional [component_name]', 'Generate a functional component')
-    .command('container [component_name]', 'Generate a container component')
-    .command('model [model_name]', 'Generate a mongoose model')
-    .command('fullstack [component_name]', 'Generate a dumb component, controller and mongoose model')
+    .arguments('<generator> [args]')
     .parse(process.argv);
+
+const printBlueprint = blueprint => {
+    console.log(`    ${chalk.yellow(blueprint.name)} - ${blueprint.description}`);
+    console.log(`    Usage: ${blueprint.usage}`);
+    console.log('');
+};
+
+program.on('--help', () => {
+    const blueprints = getMernConfig().blueprints;
+    console.log(chalk.yellow('Available Generators'));
+    console.log(chalk.yellow('____________________'));
+    console.log('');
+
+    blueprints.forEach(b => printBlueprint(b));
+});
 
 if (!program.args.length) {
     program.help();
 }
+
+new Generate([...program.args]).run();

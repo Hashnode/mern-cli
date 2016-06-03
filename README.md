@@ -1,5 +1,5 @@
 # mern-cli
-[![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=master)](https://travis-ci.org/Hashnode/mern-cli)
+[![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=v2.0.0)](https://travis-ci.org/Hashnode/mern-cli)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A CLI for getting started with MERN stack. It offers a [super simple boilerplate project](https://github.com/Hashnode/mern-starter) and additional utilities to get started with isomorphic React and Redux apps.
@@ -23,17 +23,7 @@ cd my_app && npm install
 
 Generate React components, Express routes and controllers and Mongoose models using mern generator. 
 
-```merng dumb <componentname>          	   //Generate a dumb React component```
-
-```merng functional <componentName>   	   //Generate a functional component```
-
-```merng container <componentName	  //Generate a React component and connect to Redux store```
-
-```merng route <routeName>	  	  //Generate an Express route and corresponding controller```
-
-```merng model <modelName>		  //Generate a Mongoose Model```
-
-```merng fullstack <modelName>		  // Generate a dumb component, Express route, controller and Mongoose Model```
+Docs Coming Soon
 
 ## Help and Version
 
