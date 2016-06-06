@@ -2,6 +2,14 @@ import fs from 'fs';
 import ejs from 'ejs';
 import helpers from '../util/ejsHelpers';
 
+/**
+ * Read the blueprint file and render ejs with the given parameters
+ * @param bluePrintPath
+ * @param entityName
+ * @param ui
+ * @param parent
+ * @returns {string}
+ */
 export default (bluePrintPath, entityName, ui, parent = null) => {
     let template;
     try {

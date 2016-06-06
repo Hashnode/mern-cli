@@ -2,6 +2,9 @@ import chalk from 'chalk';
 const DEFAULT_WRITE_LEVEL = 'INFO';
 import { EOL } from 'os';
 
+/**
+ * Helper class to write debug output to console
+ */
 class UI {
     constructor(options) {
         this.inputStream = options.inputStream || process.stdin;

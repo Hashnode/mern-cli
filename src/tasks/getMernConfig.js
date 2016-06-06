@@ -1,12 +1,17 @@
 import chalk from 'chalk';
 
+/**
+ * Check whether the given MERN config is valid or not
+ * @param config
+ * @returns {boolean}
+ */
 const validateMernConfig = config => {
     let valid = true;
-    const requireKeys = ['blueprints'];
+    const requiredKeys = ['blueprints'];
     const requiredBlueprintKeys = ['name', 'description', 'usage', 'files'];
-    const requireFileKeys = ['blueprint-path', 'target-path'];
+    const requiredFileKeys = ['blueprint-path', 'target-path'];
 
-    if (!requireKeys.every(c => c in config)) {
+    if (!requiredKeys.every(c => c in config)) {
         return false;
     }
 
@@ -16,7 +21,7 @@ const validateMernConfig = config => {
         } else {
             if (b.files) {
                 b.files.forEach(file => {
-                    if (!requireFileKeys.every(c => c in file)) {
+                    if (!requiredFileKeys.every(c => c in file)) {
                         valid = false;
                     }
                 });

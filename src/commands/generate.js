@@ -8,6 +8,10 @@ program
     .arguments('<generator> [args]')
     .parse(process.argv);
 
+/**
+ * Generate string output for a single blueprint
+ * @param blueprint
+ */
 const printBlueprint = blueprint => {
     console.log(`    ${chalk.yellow(blueprint.name)} - ${blueprint.description}`);
     console.log(`    Usage: ${blueprint.usage}`);
@@ -15,6 +19,7 @@ const printBlueprint = blueprint => {
 };
 
 program.on('--help', () => {
+    // Get available blueprints from the current mern project
     const blueprints = getMernConfig().blueprints;
     console.log(chalk.yellow('Available Generators'));
     console.log(chalk.yellow('____________________'));

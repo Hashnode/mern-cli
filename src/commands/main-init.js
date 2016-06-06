@@ -32,6 +32,7 @@ if (program.args.length === 1) {
     cd(program.args[0]);
 }
 
+// Check whether the given variant is available or not
 const selectedVariant = variants.filter(variant => variant.name === program.variant)[0];
 if (!selectedVariant) {
     console.log(chalk.red.bold(`${program.variant} is not a valid MERN variant. Execute 'mern list' to list available variants`));
@@ -44,6 +45,7 @@ const interval = setInterval(() => {
     logUpdate(`Fetching the boilerplate...${chalk.cyan.bold.dim(frame())}`);
 }, 50);
 
+// Pull the corresponding variant into the given folder
 exec(`git pull ${selectedVariant.git} ${selectedVariant['git-branch']}`, (code) => {
     clearInterval(interval);
     logUpdate.clear();
