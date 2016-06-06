@@ -1,5 +1,5 @@
 # mern-cli
-[![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=v2.0.0)](https://travis-ci.org/Hashnode/mern-cli)
+[![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=v3.0.0)](https://travis-ci.org/Hashnode/mern-cli)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 A CLI for getting started with MERN stack. It offers a [super simple boilerplate project](https://github.com/Hashnode/mern-starter) and additional utilities to get started with isomorphic React and Redux apps.
@@ -8,10 +8,17 @@ A CLI for getting started with MERN stack. It offers a [super simple boilerplate
 npm install -g mern-cli
 ```
 
-
-Create a new app
+Available Commands
 ```
-mern my_app
+init [name] -t=<variant_name>       Initialize a MERN project (Default variant: mern-starter).
+list                                List MERN variants
+search [term]                       Search for a MERN variant
+info [term]                         View details of a MERN variant
+```
+
+Create a new app with default `mern-starter`
+```
+mern init my_app
 ```
 
 Install Dependencies
@@ -23,13 +30,16 @@ cd my_app && npm install
 
 Generate React components, Express routes and controllers and Mongoose models using mern generator. 
 
-Docs Coming Soon
+To list out all available generators
+```
+merng
+```
 
 ## Help and Version
 
 ```
 mern -v // Check CLI version
-merng --help // Get help and check usage
+mern --help // Get help and check usage
 ```
 
 ## Roadmap
