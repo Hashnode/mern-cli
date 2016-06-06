@@ -33,7 +33,7 @@ if (program.args.length === 1) {
 }
 
 // Check whether the given variant is available or not
-const selectedVariant = variants.filter(variant => variant.name === program.variant)[0];
+const selectedVariant = variants.filter(variant => variant.name === program.target)[0];
 if (!selectedVariant) {
     console.log(chalk.red.bold(`${program.variant} is not a valid MERN variant. Execute 'mern list' to list available variants`));
     exit(1);
