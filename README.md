@@ -52,3 +52,7 @@ mern --help // Get help and check usage
 	- One click Deploy - `mern deploy`
 	- Hashnode's PaaS offering (Experimental)
    - Focus on your MERN app and leave the architecture, Devops etc for us
+
+## License
+
+MERN is released under the [MIT License](http://www.opensource.org/licenses/MIT).
