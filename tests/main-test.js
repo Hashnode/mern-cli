@@ -6,8 +6,8 @@ const exec = pify(childProcess.exec);
 
 
 test('shows help on --help', async t => {
-    const stdout = await exec('../bin/main.js --help');
-    t.is(stdout.trim(), `Usage: main [options] [command]
+    const stdout = await exec('../bin/mern.js --help');
+    t.is(stdout.trim(), `Usage: mern [options] [command]
 
 
   Commands:
@@ -29,8 +29,8 @@ test('shows help on --help', async t => {
 
 
 test('shows help on --h', async t => {
-    const stdout = await exec('../bin/main.js --help');
-    t.is(stdout.trim(), `Usage: main [options] [command]
+    const stdout = await exec('../bin/mern.js --help');
+    t.is(stdout.trim(), `Usage: mern [options] [command]
 
 
   Commands:
