@@ -4,7 +4,7 @@
     "description": "Default Mern Starter",
     "author": "Hashnode",
     "git": "https://github.com/Hashnode/mern-starter.git",
-    "git-branch": "v2.0.0",
+    "git-branch": "master",
     "issues": "https://github.com/Hashnode/mern-starter/issues"
   }
 ]
