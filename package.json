@@ -1,6 +1,6 @@
 {
   "name": "mern-cli",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "watch": {
@@ -79,7 +79,11 @@
   "homepage": "https://github.com/Hashnode/mern-cli#readme",
   "bin": {
     "mern": "./bin/mern.js",
-    "merng": "./bin/merng.js"
+    "merng": "./bin/merng.js",
+    "mern-info": "./bin/mern-info.js",
+    "mern-init": "./bin/mern-init.js",
+    "mern-list": "./bin/mern-list.js",
+    "mern-search": "./bin/mern-search.js"
   },
   "dependencies": {
     "chalk": "^1.1.1",
