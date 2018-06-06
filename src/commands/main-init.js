@@ -5,13 +5,9 @@ import logUpdate from 'log-update';
 import variants from '../../variants.json';
 require('shelljs/global');
 
-// Enter the mern-cli version
-const version = '2.5.0'; 
-
 const frame = elegantSpinner();
 
 program
-    .version(version)
     .description('Create a MERN app in current directory!')
     .option('-t, --target [name]', 'Initialize the project with a variant [mern-starter]', 'mern-starter')
     .parse(process.argv);
