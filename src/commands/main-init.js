@@ -54,7 +54,7 @@ exec(`git pull ${selectedVariant.git} ${selectedVariant['git-branch']}`, (code) 
         exit(1);
     }
     // Install the dependencies
-    console.log(chalk.green.bold(`Installing dependencies in the background for ${program.args[0]} please hold...`));
+    console.log(chalk.green.bold(`Installing dependencies for ${program.args[0]} in the background, please hold...`));
     exec('npm install');
     console.log(chalk.green.bold(`Installing dependencies for ${program.args[0]} completed.....You are good to go!`));
 });
