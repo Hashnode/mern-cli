@@ -1,13 +1,13 @@
 {
   "name": "mern-cli",
-  "version": "2.4.0",
+  "version": "2.4.2",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "watch": {
     "compile": "src/**/*.js"
   },
   "scripts": {
-    "compile": "babel --presets es2015,stage-0 -d lib/ src/",
+    "compile": "babel --presets env,stage-0 -d lib/ src/",
     "lint": "eslint . --ignore-path .gitignore",
     "lint:staged": "eslint-staged",
     "prepublish": "npm run compile",
@@ -54,7 +54,7 @@
     }
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=4"
   },
   "repository": {
     "type": "git",
@@ -82,6 +82,7 @@
     "merng": "./bin/merng.js"
   },
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "chalk": "^1.1.1",
     "cli-table": "^0.3.1",
     "commander": "^2.9.0",
@@ -95,7 +96,6 @@
     "ava": "^0.11.0",
     "babel-cli": "^6.9.0",
     "babel-eslint": "^6.0.4",
-    "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
     "eslint": "^2.10.2",
     "eslint-config-airbnb-base": "^3.0.1",
