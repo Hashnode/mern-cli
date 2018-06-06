@@ -82,13 +82,13 @@
     "merng": "./bin/merng.js"
   },
   "dependencies": {
-    "chalk": "^1.1.1",
+    "chalk": "^2.4.1",
     "cli-table": "^0.3.1",
-    "commander": "^2.9.0",
-    "ejs": "^2.4.1",
+    "commander": "^2.15.1",
+    "ejs": "^2.6.1",
     "elegant-spinner": "^1.0.1",
-    "log-update": "^1.0.2",
-    "shelljs": "^0.6.0",
+    "log-update": "^2.3.0",
+    "shelljs": "^0.8.2",
     "writefile": "^0.2.8"
   },
   "devDependencies": {
