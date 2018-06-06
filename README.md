@@ -11,9 +11,6 @@ npm install -g mern-cli
 Available Commands
 ```
 init [name] -t=<variant_name>       Initialize a MERN project (Default variant: mern-starter).
-<!-- list                                List MERN variants
-search [term]                       Search for a MERN variant
-info [term]                         View details of a MERN variant -->
 ```
 
 Create a new app with default `mern-starter` and will install dependencies automatically
