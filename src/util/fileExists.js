@@ -5,7 +5,7 @@ import fs from 'fs';
  * @param path
  * @returns {boolean}
  */
-export default path => {
+export default (path) => {
     try {
         fs.accessSync(path, fs.F_OK);
         return true;

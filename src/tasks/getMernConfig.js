@@ -5,7 +5,7 @@ import chalk from 'chalk';
  * @param config
  * @returns {boolean}
  */
-const validateMernConfig = config => {
+const validateMernConfig = (config) => {
     let valid = true;
     const requiredKeys = ['blueprints'];
     const requiredBlueprintKeys = ['name', 'description', 'usage', 'files'];
@@ -15,17 +15,15 @@ const validateMernConfig = config => {
         return false;
     }
 
-    config.blueprints.forEach(b => {
+    config.blueprints.forEach((b) => {
         if (!requiredBlueprintKeys.every(c => c in b)) {
             valid = false;
-        } else {
-            if (b.files) {
-                b.files.forEach(file => {
-                    if (!requiredFileKeys.every(c => c in file)) {
-                        valid = false;
-                    }
-                });
-            }
+        } else if (b.files) {
+            b.files.forEach((file) => {
+                if (!requiredFileKeys.every(c => c in file)) {
+                    valid = false;
+                }
+            });
         }
     });
 

@@ -47,6 +47,13 @@
       "prefer-template": 2,
       "no-use-before-define": 0,
       "newline-per-chained-call": 0,
+      "import/no-dynamic-require": 0,
+      "prefer-destructuring": ["error", {
+        "array": false,
+        "object": true
+      }, {
+        "enforceForRenamedProperties": false
+      }],
       "arrow-body-style": [
         2,
         "as-needed"

@@ -5,7 +5,7 @@ import pify from 'pify';
 const exec = pify(childProcess.exec);
 
 
-test('shows help on --help', async t => {
+test('shows help on --help', async (t) => {
     const stdout = await exec('../bin/mern.js --help');
     t.is(stdout.trim(), `Usage: mern [options] [command]
 
@@ -28,7 +28,7 @@ test('shows help on --help', async t => {
 });
 
 
-test('shows help on --h', async t => {
+test('shows help on --h', async (t) => {
     const stdout = await exec('../bin/mern.js --help');
     t.is(stdout.trim(), `Usage: mern [options] [command]
 
