@@ -11,7 +11,7 @@ const variantsTable = new Table({
 });
 
 // Make a variants table to show to all the variants
-variantsTable.push(...variants.map(v => Object.keys(v).map((k) => v[k]).slice(0, 3)));
+variantsTable.push(...variants.map(v => Object.keys(v).map(k => v[k]).slice(0, 3)));
 
 console.log(chalk.yellow('MERN Variants'));
 console.log(chalk.yellow('-------------'));

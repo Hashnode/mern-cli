@@ -16,7 +16,7 @@ class generate {
      * Process the given arguments to render the target path and the target boilerplate
      * @param args
      */
-    processArgs = args => {
+    processArgs = (args) => {
         if (args.length < 2) {
             this.ui.writeError('Please pass relevant number of arguments');
             process.exit(1);
@@ -53,8 +53,8 @@ class generate {
      * Write the generated string to the target path
      * @param target
      */
-    writeTarget = target => {
-        writeFile(`${process.cwd()}/${target['target-path']}`, target.renderedTemplate, err => {
+    writeTarget = (target) => {
+        writeFile(`${process.cwd()}/${target['target-path']}`, target.renderedTemplate, (err) => {
             if (err) {
                 this.ui.writeError(err);
                 exit(1);

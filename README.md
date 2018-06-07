@@ -8,22 +8,9 @@ A CLI for getting started with MERN stack. It offers a [super simple boilerplate
 npm install -g mern-cli
 ```
 
-Available Commands
-```
-init [name] -t=<variant_name>       Initialize a MERN project (Default variant: mern-starter).
-list                                List MERN variants
-search [term]                       Search for a MERN variant
-info [term]                         View details of a MERN variant
-```
-
-Create a new app with default `mern-starter`
+Create a new project with default `mern-starter` and dependencies pre-installed:
 ```
 mern init my_app
-```
-
-Install Dependencies
-```
-cd my_app && npm install
 ```
 
 ## Generators

@@ -22,7 +22,7 @@ const variantsTable = new Table({
 const filteredVariants = variants.filter(variant => variant.name.toLowerCase().search(input.toLowerCase()) !== -1 || variant.description.toLowerCase().search(input.toLowerCase()) !== -1);
 
 // Make a variants table to show to all the variants matched with the given search string
-variantsTable.push(...filteredVariants.map(v => Object.keys(v).map((k) => v[k]).slice(0, 3)));
+variantsTable.push(...filteredVariants.map(v => Object.keys(v).map(k => v[k]).slice(0, 3)));
 
 console.log(chalk.yellow(`Search results for ${input}`));
 console.log(chalk.yellow('-------------'));

@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import elegantSpinner from 'elegant-spinner';
 import logUpdate from 'log-update';
 import variants from '../../variants.json';
+
 require('shelljs/global');
 
 const frame = elegantSpinner();
@@ -53,5 +54,8 @@ exec(`git pull ${selectedVariant.git} ${selectedVariant['git-branch']}`, (code) 
         console.log(chalk.red.bold('Error! Try again'));
         exit(1);
     }
-    console.log(chalk.green.bold('Completed.....You are good to go!'));
+    // Install the dependencies
+    console.log(chalk.green.bold(`Installing dependencies for ${program.args[0]} in the background, please hold...`));
+    exec('npm install');
+    console.log(chalk.green.bold(`Installing dependencies for ${program.args[0]} completed.....You are good to go!`));
 });

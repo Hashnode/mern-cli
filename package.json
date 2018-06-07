@@ -1,6 +1,6 @@
 {
   "name": "mern-cli",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "A cli for generating MERN boilerplate",
   "main": "index.js",
   "watch": {
@@ -47,6 +47,17 @@
       "prefer-template": 2,
       "no-use-before-define": 0,
       "newline-per-chained-call": 0,
+      "import/no-dynamic-require": 0,
+      "prefer-destructuring": [
+        "error",
+        {
+          "array": false,
+          "object": true
+        },
+        {
+          "enforceForRenamedProperties": false
+        }
+      ],
       "arrow-body-style": [
         2,
         "as-needed"
@@ -82,26 +93,26 @@
     "merng": "./bin/merng.js"
   },
   "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "chalk": "^1.1.1",
+    "chalk": "^2.4.1",
     "cli-table": "^0.3.1",
-    "commander": "^2.9.0",
-    "ejs": "^2.4.1",
+    "commander": "^2.15.1",
+    "ejs": "^2.6.1",
     "elegant-spinner": "^1.0.1",
-    "log-update": "^1.0.2",
-    "shelljs": "^0.6.0",
+    "log-update": "^2.3.0",
+    "shelljs": "^0.8.2",
     "writefile": "^0.2.8"
   },
   "devDependencies": {
-    "ava": "^0.11.0",
-    "babel-cli": "^6.9.0",
-    "babel-eslint": "^6.0.4",
-    "babel-preset-stage-0": "^6.5.0",
-    "eslint": "^2.10.2",
-    "eslint-config-airbnb-base": "^3.0.1",
-    "eslint-plugin-import": "^1.8.0",
-    "lint-staged": "^0.2.2",
-    "npm-watch": "^0.1.4",
-    "pify": "^2.3.0"
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "lint-staged": "^7.1.3",
+    "npm-watch": "^0.3.0",
+    "pify": "^3.0.0"
   }
 }

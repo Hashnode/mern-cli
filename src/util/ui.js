@@ -1,6 +1,7 @@
 import chalk from 'chalk';
-const DEFAULT_WRITE_LEVEL = 'INFO';
 import { EOL } from 'os';
+
+const DEFAULT_WRITE_LEVEL = 'INFO';
 
 /**
  * Helper class to write debug output to console
