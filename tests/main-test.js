@@ -13,9 +13,6 @@ test('shows help on --help', async (t) => {
   Commands:
 
     init [name]    Initialize a MERN project.
-    list           List MERN variants
-    search [term]  Search for MERN variant
-    info [term]    View details of a MERN variant
     help [cmd]     display help for [cmd]
 
   Initialize a MERN powered project
@@ -36,9 +33,6 @@ test('shows help on --h', async (t) => {
   Commands:
 
     init [name]    Initialize a MERN project.
-    list           List MERN variants
-    search [term]  Search for MERN variant
-    info [term]    View details of a MERN variant
     help [cmd]     display help for [cmd]
 
   Initialize a MERN powered project
