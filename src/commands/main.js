@@ -2,6 +2,8 @@ import program from 'commander';
 import pjson from '../../package.json';
 import chalk from 'chalk';
 
+const availableCommands = ['init', 'list', 'search', 'info'];
+
 program
     .version(pjson.version)
     .option('-v, --version', 'check version')
@@ -11,12 +13,15 @@ program
     .command('search [term]', 'Search for MERN variant')
     .command('info [term]', 'View details of a MERN variant')
     .arguments('<command>')
-    .action((cmd) => {
-      program.outputHelp()
-      console.log(`  ` + chalk.yellow(`\n  Unknown command ${chalk.green(cmd)}`))
-      console.log()
-  })
   .parse(process.argv);
+
+if (program.args.length >= 1) {
+	if (!availableCommands.includes(program.args[0])) {
+		program.outputHelp()
+    	console.log(`  ` + chalk.red(`\n  Unknown command ${chalk.yellow(program.args[0])}.`))
+		console.log()
+	}
+}  
 
 if (!program.args.length) {
     program.help();
