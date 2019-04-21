@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # mern-cli
 [![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=v3.0.0)](https://travis-ci.org/Hashnode/mern-cli)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
