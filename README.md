@@ -1,4 +1,5 @@
-# DEPRECATED
+# ⛔️ DEPRECATED
+***MERN is deprecated and is no longer actively maintained.***
 
 # mern-cli
 [![Build Status](https://travis-ci.org/Hashnode/mern-cli.svg?branch=v3.0.0)](https://travis-ci.org/Hashnode/mern-cli)
