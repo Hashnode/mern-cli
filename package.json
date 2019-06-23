@@ -100,6 +100,7 @@
     "elegant-spinner": "^1.0.1",
     "log-update": "^2.3.0",
     "shelljs": "^0.8.2",
+    "validate-npm-package-name": "^3.0.0",
     "writefile": "^0.2.8"
   },
   "devDependencies": {

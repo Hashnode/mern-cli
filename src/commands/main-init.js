@@ -3,6 +3,7 @@ import chalk from 'chalk';
 import elegantSpinner from 'elegant-spinner';
 import logUpdate from 'log-update';
 import variants from '../../variants.json';
+import validate from 'validate-npm-package-name';
 
 require('shelljs/global');
 
@@ -22,6 +23,16 @@ if (program.args.length > 1) {
     console.log(chalk.red('Please give only one argument as a directory name!!!'));
     exit(1);
 }
+
+const validationResult = validate(program.args[0]);
+if (!validationResult.validForNewPackages) {
+    console.error(
+      `Could not create a project called ${chalk.red(
+        `"${program.args[0]}"`
+    )} because of npm naming restrictions:`
+    );
+    exit(1);
+} 
 
 if (program.args.length === 1) {
     if (test('-d', program.args[0])) {
