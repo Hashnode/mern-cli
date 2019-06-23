@@ -20,7 +20,7 @@ const printBlueprint = (blueprint) => {
 
 program.on('--help', () => {
     // Get available blueprints from the current mern project
-    const { blueprints } = getMernConfig().blueprints;
+    const { blueprints } = getMernConfig();
     console.log(chalk.yellow('Available Generators'));
     console.log(chalk.yellow('____________________'));
     console.log('');
